@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+label{
+    font-size: 24px;
+}
+
+::placeholder{
+    letter-spacing: 1px;
+}
+
+span{
+    font-size: 12px;
+}
+
+.form-login {
+    border: solid 0.2px;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    background-color: rgba(108, 108, 108, 0.4);
+    border: none;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.31);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.31);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.31);
+}

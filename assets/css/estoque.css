@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    overflow-y: scroll !important;
+}
+
+section{
+    margin-top: 10px;
+}
+
+main{
+    text-align: center;
+}
+
+.modal-body{
+    margin-right: 0 !important;
+}

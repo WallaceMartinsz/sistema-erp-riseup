@@ -1,0 +1,57 @@
+body{
+    background-color:white; 
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-item>a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-item>a:hover {
+    color: orange;
+}
+
+td,th{
+    width:auto;
+}
+
+.btn-orange{
+	background-color: orange;
+}
+
+.btn-orange:hover{
+	color: white;
+	background-color: orange;
+}
+
+.btn-orange:focus{
+    color: white;
+    background-color: orange;
+}
+
+form#formPesquisa {
+    width: 40%;
+}
+
+form#formPesquisa button {
+    background: #f08a01;
+}
+
+.page_link{
+    background-color: orange;
+}
+
+@media screen and (max-width: 900px) {
+    form#formPesquisa {
+        width: 60%;
+    }
+}
+@media screen and (max-width: 767px) {
+    #example_length,#example_info{ 
+        margin-bottom:2%; 
+    }
+}

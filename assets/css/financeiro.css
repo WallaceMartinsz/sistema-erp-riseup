@@ -1,0 +1,24 @@
+/* ----------------------------------Gráficos------------------------------------- */
+#section {
+    text-align: center;
+    height: auto;
+    overflow-x: hidden;
+}
+
+#lado1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#Receita {
+    height: 250px;
+}
+
+#fluxoM,
+#Despesas,
+#LucroPreju {
+    width: 500px;
+    height: auto;
+    padding: 10px;
+}

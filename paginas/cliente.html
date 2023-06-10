@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+    <link href="../assets/css/funcionario-cliente.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/jpg" href="../assets/logo.png"/>
+    <title>ERP Devcyber | Clientes </title>
+</head>
+
+<body>
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-md bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../assets/logo.png" alt="Logo" width="80" height="auto">
+                </a>
+                <button style="background-color: orange;" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item "><a class="nav-link" href="pdv.html">Venda</a></li>
+                        <li class="nav-item "><a class="nav-link" href="estoque.html">Estoque</a></li>
+                        <li class="nav-item "><a class="nav-link" href="financeiro.html">Financeiro</a></li>
+                        <li class="nav-item "><a class="nav-link" href="funcionarios.html">Funcionário</a></li>
+                        <li class="nav-item "><a class="nav-link" href="cliente.html">Cliente</a></li>
+                    </ul>
+                    <form action="#" method="post" id="formPesquisa" class="d-flex" role="search">
+                        <input class="barraPesquisa form-control me-2" type="search" placeholder="Pesquisa"
+                            aria-label="Pesquisa" style="width: 75%;">
+                        <button class="btn" type="submit" data-id="1"><i class="bi bi-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="mt-3">
+        <div class="container-fluid px-3">
+
+            <h2>Gerenciamento de Clientes</h2>
+
+            <div class="mb-2">
+
+                <button class='btn btn-orange' type="button" data-bs-toggle="modal" data-bs-target="#cadastroCliente"><i
+                        class="bi bi-person-fill-add"></i></button>
+
+                <div class="modal fade" id="cadastroCliente" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content bg-dark text-white-50">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Cadastro de clientes</h1>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id='formCadastar'>
+                                    <div class="mb-3">
+                                        <label for="Nome" class="col-form-label">Nome:</label>
+                                        <input type="text" name="Nome" class="form-control" id="Nome">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="CPF" class="col-form-label">CPF:</label>
+                                        <input type="text" name='CPF' class="form-control" id="CPF">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Telefone" class="col-form-label">Telefone:</label>
+                                        <input type="text" name="Telefone" class="form-control" id="Telefone">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary" id="btnCadastrar"
+                                    onclick="cadastrar();">Cadastrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="atualizarCliente" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
+                        <div class="modal-content bg-dark text-white-50">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Atualizar clientes</h1>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id='formAtualizar'>
+                                    <div class="mb-3">
+                                        <label for="nomeAtualizar" class="col-form-label">Nome:</label>
+                                        <input type="text" name="nomeAtualizar" class="form-control" id="nomeAtualizar">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="cpfAtualizar" class="col-form-label">CPF:</label>
+                                        <input type="text" name='cpfAtualizar' class="form-control" id="cpfAtualizar">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="telefoneAtualizar" class="col-form-label">Telefone:</label>
+                                        <input type="text" name="telefoneAtualizar" class="form-control"
+                                            id="telefoneAtualizar">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-primary" id="btnAtualizar"
+                                    onclick="atualizar();">Atualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="table-responsive bg-dark text-white rounded p-2">
+                <table id="tabelaCliente" class="table table-dark table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>CPF</th>
+                            <th>Telefone</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody class="">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="../assets/js/dataTables.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+<script src="../assets/js/funcionario-cliente.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#tabelaCliente").DataTable();
+    });
+
+    var array = []; 
+
+    function cadastrar() {
+        var form = $('#formCadastar')[0];
+        var formData = new FormData(form);
+
+        if (formData.get("CPF") == "" || formData.get("CPF") == null) {
+            alert('Campo CPF obrigatório para cadastro de cliente!')
+        } else {
+            var objeto = {}; 
+
+            if (formData.get('Nome') != "" || formData.get('Nome') != null) {
+                objeto.nome = formData.get('Nome');
+            }
+            if (formData.get('CPF') != "" || formData.get('CPF') != null) {
+                objeto.cpf = formData.get('CPF');
+            }
+            if (formData.get('Telefone') != "" || formData.get('Telefone') != null) {
+                objeto.telefone = formData.get('Telefone');
+            }
+
+            if (Object.keys(objeto).length >= 3) {
+                objeto.botao = '<button class="btn-editar" type="button" onclick="abrirPopUpAtualizar()";><i class="bi bi-plus"></i></button>';
+                array.push(objeto); 
+                $('#tabelaCliente').DataTable().row.add(Object.values(objeto)).draw();
+            }
+
+            $('#Nome').val('');
+            $('#CPF').val('');
+            $('#Telefone').val('');
+
+            $('#cadastroCliente').modal('hide');
+        }
+
+
+    }
+
+    function atualizar() {
+        var form = $('#formAtualizar')[0];
+        var formData = new FormData(form);
+
+        var novoNome = formData.get('nomeAtualizar');
+        var novoCPF = formData.get('cpfAtualizar');
+        var novoTelefone = formData.get('telefoneAtualizar');
+
+        for (var i = 0; i < array.length; i++) {
+            if (novoNome !== "" && novoNome !== null) {
+                array[i].nome = novoNome;
+            }
+            if (novoCPF !== "" && novoCPF !== null) {
+                array[i].cpf = novoCPF;
+            }
+            if (novoTelefone !== "" && novoTelefone !== null) {
+                array[i].telefone = novoTelefone;
+            }
+            break;
+        }
+
+        atualizarTabela();
+
+        $('#nomeAtualizar').val('');
+        $('#cpfAtualizar').val('');
+        $('#telefoneAtualizar').val('');
+
+        $('#atualizarCliente').modal('hide');
+
+    }
+
+    function atualizarTabela() {
+        $('#tabelaCliente').DataTable().clear().draw();
+
+        for (var i = 0; i < array.length; i++) {
+            $('#tabelaCliente').DataTable().row.add(Object.values(array[i]));
+        }
+        $('#tabelaCliente').DataTable().draw();
+    }
+
+    function abrirPopUpAtualizar() {
+        $('#atualizarCliente').modal('show');
+    }
+
+</script>
+
+</body>
+
+</html>
