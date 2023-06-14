@@ -1,24 +1,30 @@
 /* ----------------------------------Gráficos------------------------------------- */
-#section {
-    text-align: center;
-    height: auto;
-    overflow-x: hidden;
+
+body {
+    overflow: hidden;
 }
 
-#lado1 {
+#section {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#sub_receitas {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
 #Receita {
+    width: 100%;
     height: 250px;
 }
 
 #fluxoM,
 #Despesas,
 #LucroPreju {
-    width: 500px;
-    height: auto;
-    padding: 10px;
+    width: 100%;
+    height: 30%;
+    padding: 5px;
 }
